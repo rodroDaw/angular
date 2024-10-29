@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "nombre": "Bombilla Led e27",
+    "imagenHrefExterno": "https://www.microlediberica.com/wp-content/uploads/2021/04/bombilla-led-cfl-e27-12w.jpg",
+    "precio": 2,
+    "descripcion": "Bombilla Led de bajo consumo"
+  },
+  {
+    "id": 2,
+    "nombre": "Bombilla h7",
+    "imagenHrefExterno": "https://www.anarchybiker.com/42854-large_default/bombilla-h7-55w-halogen.jpg",
+    "precio": 5.9,
+    "descripcion": "Bombilla H7 de alto consumo"
+  },
+  {
+    "id": 3,
+    "nombre": "Martillo",
+    "imagenHrefExterno": "https://comercialmoncho.com/12817-large_default/martillo-una-irimo-520-41-2.jpg",
+    "precio": 5.6,
+    "descripcion": "Martillo de precisión táctico"
+  },
+  {
+    "id": 4,
+    "nombre": "Clavo",
+    "imagenHrefExterno": "https://m.media-amazon.com/images/I/61nvilzCKXL._AC_UF894,1000_QL80_.jpg",
+    "precio": 0.1,
+    "descripcion": "Clavo de aluminio barato"
+  }
+]

@@ -1,0 +1,37 @@
+<h2>Editar productos</h2>
+
+<div class="row my-4">
+  <div *ngFor="let producto of productos; let i = index" class="producto-card col-lg-2 col-md-12 bg-light border rounded shadow m-2">
+      <div class="row justify-content-end">
+        <button type="button" (click)="activarEdicion(i, producto.id)" class="position-absolute col-2 btn btn-primary p-2">
+          <i class="bi bi-pencil-square"></i>
+        </button>
+      </div>
+        <img [src]="producto.imagenHrefExterno" alt="{{ producto.nombre }}" class="my-2 producto-image rounded">
+        <input (change)="validarInput(producto.id)" [(ngModel)]="producto.imagenHrefExterno" name="imagenHrefExterno" required type="text"
+               class="form-control" #imagenHrefExterno="ngModel" [disabled]="productoEditando !== i">
+        <div class="my-2 input-group input-group-lg">
+          <input (change)="validarInput(producto.id)" [(ngModel)]="producto.nombre" #nombre="ngModel" name="nombre" required type="text" class="form-control" [disabled]="productoEditando !== i">
+        </div>
+        <div class="my-2 input-group input-group-sm">
+          <input (change)="validarInput(producto.id)" [(ngModel)]="producto.descripcion" #descripcion="ngModel" name="descripcion" type="text" class="form-control" [disabled]="productoEditando !== i">
+        </div>
+        <div class="precio-div">
+          <hr>
+          <div class="row">
+            <div class="col-12">
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Precio</span>
+                </div>
+                <input (change)="validarInput(producto.id)" [(ngModel)]="producto.precio" name="precio" required min="0.05" type="number" class="form-control" #precio="ngModel" [disabled]="productoEditando !== i">
+                <div class="input-group-append">
+                  <span class="input-group-text">€</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+  </div>
+</div>

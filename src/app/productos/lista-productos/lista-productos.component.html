@@ -1,0 +1,20 @@
+<h2>Listado de productos</h2>
+  <!-- Renderizamos la lista de productos -->
+<div *ngIf="productos.length > 0; else noProductos">
+  <div class="row my-4">
+    <div *ngFor="let producto of productos" class="producto-card col-lg-2 col-md-12 bg-light border rounded shadow m-2">
+      <img [src]="producto.imagenHrefExterno" alt="{{ producto.nombre }}" class="my-2 producto-image rounded">
+      <h2 class="my-2">{{ producto.nombre }}</h2>
+      <p>{{ producto.descripcion}}</p>
+      <div class="precio-div">
+        <hr>
+        <p>Precio: <b>{{ producto.precio }}</b> €</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mostrar mensaje si no hay productos -->
+<ng-template #noProductos>
+  <p>No hay productos disponibles.</p>
+</ng-template>
