@@ -1,0 +1,13 @@
+  <div class="producto-card">
+    <app-button-edit [product]="product"></app-button-edit>
+    <app-button-remove [product]="product"></app-button-remove>
+
+
+    <img [src]="product?.img" alt="{{ product?.name }}" class="my-2 producto-image rounded">
+    <h2 class="my-2">{{ product?.name }}</h2>
+    <p>{{ product?.desc}}</p>
+    <div class="precio-div">
+      <hr>
+      <p>Precio: <b>{{ product?.price }}</b> €</p>
+    </div>
+  </div>

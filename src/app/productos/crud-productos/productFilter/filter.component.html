@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-12 bg-light border rounded shadow py-2">
+    <div class="row">
+      <div class="col-lg-8 col-md-12">
+        <div class="row">
+          <label class="col-12 col-form-label mt-2">Introduzca el nombre del producto a filtrar:</label>
+          <div class="col-12">
+            <input name="nameFilter" type="text" class="form-control" [(ngModel)]="nameFilter">
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <div class="row">
+          <label class="col-12 col-form-label mt-2">Filtrar por precio:</label>
+        </div>
+        <div class="row">
+          <label class="col-auto col-form-label mt-2">> que:</label>
+          <div class="col-4">
+            <input
+              min="0.01"
+              name="priceFilterMin"
+              type="number"
+              class="form-control"
+              [(ngModel)]="priceFilterMin">
+          </div>
+        </div>
+        <div class="row">
+          <label class="col-auto col-form-label mt-2">< que:</label>
+          <div class="col-4">
+            <input
+              max="1000"
+              name="priceFilterMax"
+              type="number"
+              class="form-control"
+              [(ngModel)]="priceFilterMax">
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="row justify-content-center">
+          <button type="button" class="col-auto btn btn-success mx-2" (click)="filterProducts()">Buscar</button>
+          <button type="button" class="col-auto btn btn-secondary mx-2" (click)="resetSearch()">Resetear búsqueda</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

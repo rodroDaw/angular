@@ -1,0 +1,19 @@
+
+
+<!-- Renderizamos la lista de productos -->
+<div *ngIf="productsList.length > 0; else productListEmpty" class="row my-4 border">
+
+  <app-product-card-add class="card-item bg-light border rounded shadow"></app-product-card-add>
+
+  <product-card
+    *ngFor="let product of productsList"
+    [product]="product"
+    class="card-item bg-light border rounded shadow">
+  </product-card>
+
+</div>
+
+<!-- Mostrar mensaje si no hay productos -->
+<ng-template #productListEmpty>
+  <p>No hay productos disponibles.</p>
+</ng-template>

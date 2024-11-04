@@ -1,0 +1,47 @@
+<!-- alert remove -->
+<div *ngIf="alertRemove" class="position-fixed top-0 start-0 w-100" role="alert">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="alert alert-danger">
+          ¡Producto borrado correctamente!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- boton en card -->
+<button
+  (click)="showFormModal(product?.id)"
+  class="position-absolute top-0 end-0 btn btn-danger p-2 id-{{product?.id}}">
+  <i class="bi bi-x-lg"></i>
+</button>
+
+<!-- modal -->
+<div [ngClass]="{'d-block': showModal, 'd-none': !showModal}" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+          <h2 class="col-12 modal-title">
+            Estas seguro de que quieres borrar "{{currentProduct?.name}}"
+          </h2>
+          <h3>id: {{currentProduct?.id}}</h3>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <img class="col-12 w-100" src="{{currentProduct?.img}}">
+          <p class="col-12">{{currentProduct?.desc}}</p>
+          <p class="col-12">Precio: {{currentProduct?.price}} €</p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button (click)="removePermanent()" type="button" class="btn btn-danger">Si</button>
+        <button (click)="hiddeModal()" type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>

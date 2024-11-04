@@ -1,27 +1,32 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms'; // ngModel
 
-import { ProductosRoutingModule } from './productos-routing.module';
-/*
-import { CrearProductoComponent } from './crear-producto/crear-producto.component';
-import { FiltrarProductoComponent } from './filtrar-producto/filtrar-producto.component';
-import { EliminarProductoComponent } from './eliminar-producto/eliminar-producto.component';
-import { EditarProductoComponent } from './editar-producto/editar-producto.component';
-
-*/
+import { CrudProductosComponent } from './crud-productos/crud-productos.component';
+import { ListComponent } from './crud-productos/productList/list.component';
+import { FilterComponent } from './crud-productos/productFilter/filter.component';
+import { ProductCardComponent } from './crud-productos/productCard/product-card.component';
+import { ProductCardAddComponent } from './crud-productos/productCardAdd/product-card-add.component';
+import { ButtonEditComponent } from './crud-productos/productCard/button-edit/button-edit.component';
+import { ButtonRemoveComponent } from './crud-productos/productCard/button-remove/button-remove.component';
 
 
 @NgModule({
   declarations: [
-    /*
-    CrearProductoComponent,
-    FiltrarProductoComponent,
-    EliminarProductoComponent
-    */
+    CrudProductosComponent,
+    ListComponent,
+    FilterComponent,
+    ProductCardComponent,
+    ProductCardAddComponent,
+    ButtonRemoveComponent,
+    ButtonEditComponent
   ],
   imports: [
     CommonModule,
-    ProductosRoutingModule
+    FormsModule // Asegúrate de incluir FormsModule si utilizas ngModel
+  ],
+  exports: [
+    CrudProductosComponent // Exporta si necesitas utilizar este componente en otros módulos
   ]
 })
 export class ProductosModule { }

@@ -1,0 +1,14 @@
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12">
+      <h2>CRUD de productos</h2>
+    </div>
+    <div class="col-10">
+      <app-filter class="w-100" [productsList]="productsList" (productsFilteredEmmitter)="getListFilter($event)"></app-filter>
+    </div>
+    <div class="col-12">
+      <app-listado [productsList]="productsListShow"></app-listado>
+    </div>
+  </div>
+</div>

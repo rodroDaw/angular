@@ -1,0 +1,71 @@
+<!-- alert update -->
+<div *ngIf="alertUpdate" class="position-fixed top-0 start-0 w-100" role="alert">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="alert alert-primary">
+          ¡Producto actualiado correctamente!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- boton en card -->
+<button (click)="showFormModalUpdate(product?.id)" class="btn-edit position-absolute top-0 btn btn-primary p-2 mx-1">
+  <i class="bi bi-pencil-square"></i>
+</button>
+
+<!-- modal -->
+<div *ngIf="product">
+  <div [ngClass]="{'d-block': showModal, 'd-none': !showModal}" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="row">
+            <h2 class="col-12 modal-title">
+              Añade los siguientes campos:
+            </h2>
+          </div>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group row">
+              <label class="col-12 col-form-label mt-2">Introduzca el nombre del producto:</label>
+              <div class="col-12">
+                <input (change)="inputValid()" [(ngModel)]="product.name" name="name" type="text" class="form-control" #name="ngModel">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-12 col-form-label mt-2">Introduzca la descripción del producto:</label>
+              <div class="col-12">
+                <input [(ngModel)]="product.desc" name="desc" type="text" class="form-control" #desc="ngModel">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-12 col-form-label mt-2">Introduzca la URL para la imagen:</label>
+              <div class="col-12">
+                <input (change)="inputValid()" [(ngModel)]="product.img" name="img" type="text" class="form-control" #img="ngModel">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label class="col-12 col-form-label mt-2">Introduzca el precio del producto:</label>
+              <div class="col-3">
+                <input (change)="inputValid()" min="0.05" [(ngModel)]="product.price" name="price" type="number" class="form-control"
+                  #price="ngModel">
+
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button (click)="updateValid()" type="button" class="btn btn-primary">Actualizar</button>
+              <button (click)="hiddeModalUpdate()" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

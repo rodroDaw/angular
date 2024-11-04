@@ -1,0 +1,87 @@
+<!-- alert crear -->
+<div *ngIf="alertCreate" class="position-absolute top-0 start-0 w-100" role="alert">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="alert alert-success">
+          ¡Producto creado correctamente!
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- card + -->
+<div class="producto-card producto-card-add">
+  <div class="row justify-content-center h-100">
+    <button (click)="showFormModal()" class="btn btn-add col-auto my-auto">
+      <i class="bi bi-plus-circle-fill"></i>
+    </button>
+  </div>
+</div>
+
+<!-- modal crear -->
+<div [ngClass]="{'d-block': showModal, 'd-none': !showModal}" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+          <h2 class="col-12 modal-title">
+            Añade los siguientes campos:
+          </h2>
+        </div>
+      </div>
+      <div class="modal-body">
+        <form #productoForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group row">
+            <label class="col-12 col-form-label mt-2">Introduzca el nombre del producto:</label>
+            <div class="col-12">
+              <input required [(ngModel)]="product.name" name="name" type="text" class="form-control" #name="ngModel">
+              <div *ngIf="name.invalid && name.touched" class="text-danger">
+                El nombre es requerido.
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-12 col-form-label mt-2">Introduzca la descripción del producto:</label>
+            <div class="col-12">
+              <input [(ngModel)]="product.desc" name="desc" type="text" class="form-control" #desc="ngModel">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-12 col-form-label mt-2">Introduzca la URL para la imagen:</label>
+            <div class="col-12">
+              <input required [(ngModel)]="product.img" name="img" type="text" class="form-control" #img="ngModel">
+              <div *ngIf="img.invalid && img.touched" class="text-danger">
+                La URL de la imagen es requerida.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-12 col-form-label mt-2">Introduzca el precio del producto:</label>
+            <div class="col-3">
+              <input min="0.05" required [(ngModel)]="product.price" name="price" type="number" class="form-control"
+                #price="ngModel">
+              <div *ngIf="price.invalid && price.touched" class="text-danger w-100 position-absolute">
+                El precio es requerido y debe ser al menos 0.05.
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-footer mt-5">
+            <button
+              type="submit"
+              class="col-auto btn btn-success"
+              [disabled]="productoForm.invalid">
+              Crear producto
+            </button>
+            <button (click)="hiddeModal()" type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
