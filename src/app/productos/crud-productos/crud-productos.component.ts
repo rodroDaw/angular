@@ -15,6 +15,8 @@ export class CrudProductosComponent {
   productsListShow: Product[] = [];       //mostramos
   //productosCacheFiltrados: Product[] = [];
 
+  //loader
+  loading: boolean = false;
   //alerts
   alertCreate = false;
 
@@ -25,9 +27,11 @@ export class CrudProductosComponent {
   }
 
   ngOnInit(): void {
+    this.loading = true;
     this.productoService.getProducts().subscribe((data: Product[]) => {
       this.productsList = data;
       this.productsListShow = this.productsList;
+      this.loading = false;
     });
   }
 

@@ -1,17 +1,3 @@
-<!-- alert crear -->
-<div *ngIf="alertCreate" class="position-absolute top-0 start-0 w-100" role="alert">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="alert alert-success">
-          ¡Producto creado correctamente!
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <!-- card + -->
 <div class="producto-card producto-card-add">
   <div class="row justify-content-center h-100">
@@ -73,6 +59,7 @@
 
           <div class="modal-footer mt-5">
             <button
+              (click)="hiddeModal()"
               type="submit"
               class="col-auto btn btn-success"
               [disabled]="productoForm.invalid">

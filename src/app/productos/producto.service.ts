@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, delay } from 'rxjs/operators';
 
 import { Product } from '../models/product.model';
 
@@ -18,18 +18,21 @@ export class ProductoService {
   constructor(private http: HttpClient) { }
 
   getProducts(): Observable<Product[]> {
+
     if (this.productCache.length > 0) {
-      // Si los productos ya están en caché, devolverlos como Observable
+      // Si los productos ya están en caché, devolverlos como Observable con retraso
       this.productCacheFiltered = this.productCache;
-      return of(this.productCache);
+      return of(this.productCache).pipe(delay(2000)); // Retraso de 2 segundos
     } else {
       // Si no están en caché, obtener los datos del archivo JSON y almacenarlos
       return this.http.get<Product[]>(this.url).pipe(
+        delay(2000), // Retraso de 2 segundos antes de devolver los datos
         map(productos => {
           this.productCacheFiltered = productos;
           this.productCache = productos;
           return productos;
         })
+
       );
     }
   }

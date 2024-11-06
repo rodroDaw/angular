@@ -1,13 +1,18 @@
   <div class="producto-card">
-    <app-button-edit [product]="product"></app-button-edit>
-    <app-button-remove [product]="product"></app-button-remove>
+    <img [src]="product?.img" alt="{{ product?.name }}" class="my-2 producto-image product-img rounded">
+    <h2 class="my-2 product-name">{{ product?.name }}</h2>
+    <p class="product-desc">{{ product?.desc}}</p>
 
-
-    <img [src]="product?.img" alt="{{ product?.name }}" class="my-2 producto-image rounded">
-    <h2 class="my-2">{{ product?.name }}</h2>
-    <p>{{ product?.desc}}</p>
+    <div class="w-100 row justify-content-end">
+      <div class="col-auto p-0">
+        <app-button-edit [product]="product"></app-button-edit>
+      </div>
+      <div class="col-auto p-0">
+        <app-button-remove [product]="product"></app-button-remove>
+      </div>
+    </div>
     <div class="precio-div">
       <hr>
-      <p>Precio: <b>{{ product?.price }}</b> €</p>
+      <p>Precio: <b class="product-price">{{ product?.price }}</b> €</p>
     </div>
   </div>

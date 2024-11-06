@@ -5,7 +5,7 @@
         <div class="row">
           <label class="col-12 col-form-label mt-2">Introduzca el nombre del producto a filtrar:</label>
           <div class="col-12">
-            <input name="nameFilter" type="text" class="form-control" [(ngModel)]="nameFilter">
+            <input (input)="onSubmitInterval($event)" name="nameFilter" type="text" class="form-control" [(ngModel)]="nameFilter">
           </div>
         </div>
       </div>
@@ -17,6 +17,7 @@
           <label class="col-auto col-form-label mt-2">> que:</label>
           <div class="col-4">
             <input
+              (input)="onSubmitInterval($event)"
               min="0.01"
               name="priceFilterMin"
               type="number"
@@ -28,6 +29,7 @@
           <label class="col-auto col-form-label mt-2">< que:</label>
           <div class="col-4">
             <input
+              (input)="onSubmitInterval($event)"
               max="1000"
               name="priceFilterMax"
               type="number"

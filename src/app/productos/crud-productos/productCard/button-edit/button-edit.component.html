@@ -1,18 +1,7 @@
-<!-- alert update -->
-<div *ngIf="alertUpdate" class="position-fixed top-0 start-0 w-100" role="alert">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="alert alert-primary">
-          ¡Producto actualiado correctamente!
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- boton en card -->
-<button (click)="showFormModalUpdate(product?.id)" class="btn-edit position-absolute top-0 btn btn-primary p-2 mx-1">
+<button
+  (click)="showFormModalUpdate(product?.id)"
+  class="btn-edit top-0 btn btn-primary p-2 mx-1">
   <i class="bi bi-pencil-square"></i>
 </button>
 

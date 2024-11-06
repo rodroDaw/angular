@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter  } from '@angular/core';
+import { Subscription, interval } from 'rxjs';
 
 import { ProductoService } from '../../producto.service';
 import { Product } from '../../../models/product.model';
@@ -17,8 +18,13 @@ export class FilterComponent{
   nameFilter: string = '';
   priceFilterMin: number | null = 0.01;
   priceFilterMax: number | null = 1000;
+  //componInterval: Subscription | undefined;
 
   constructor(private productoService: ProductoService) { }
+
+  onSubmitInterval(event: Event){
+    this.filterProducts();
+  }
 
   filterProducts() {
     this.productsFiltered = this.productsList.filter(product => {

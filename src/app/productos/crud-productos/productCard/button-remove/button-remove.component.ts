@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import Swal from 'sweetalert2';
 
 import { Product } from 'src/app/models/product.model';
 
@@ -14,7 +15,6 @@ export class ButtonRemoveComponent {
   @Input() product: Product | undefined;
   currentProduct: { id: number; name: string; price: number; img: string; desc: string } | null | undefined;
 
-  alertRemove = false;
   showModal = false;
 
   constructor(private productoService: ProductoService) {}
@@ -29,13 +29,23 @@ export class ButtonRemoveComponent {
   }
 
   removePermanent() {
-    if(this.currentProduct!=null){
+    if (this.currentProduct != null) {
       this.productoService.removeProduct(this.currentProduct);
-      this.alertRemove = true;
+      Swal.fire({
+        title: 'Producto eliminado',
+        text: `El producto "${this.currentProduct.name}" ha sido eliminado exitosamente.`,
+        icon: 'error',
+        confirmButtonText: 'Aceptar',
+        customClass: {
+          popup: 'alert alert-danger',
+          confirmButton: 'btn btn-primary'
+        },
+        timer: 2000,
+        timerProgressBar: true,
+      }).then(() => {
+        this.showModal = false;
+      });
 
-      setTimeout(() => {
-        this.alertRemove = false;
-      }, 3000);
     }
   }
 

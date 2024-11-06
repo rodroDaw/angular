@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'; // ngModel
 
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
 import { CrudProductosComponent } from './crud-productos/crud-productos.component';
 import { ListComponent } from './crud-productos/productList/list.component';
 import { FilterComponent } from './crud-productos/productFilter/filter.component';
@@ -23,7 +25,9 @@ import { ButtonRemoveComponent } from './crud-productos/productCard/button-remov
   ],
   imports: [
     CommonModule,
-    FormsModule // Asegúrate de incluir FormsModule si utilizas ngModel
+    FormsModule,
+    MatProgressSpinnerModule
+
   ],
   exports: [
     CrudProductosComponent // Exporta si necesitas utilizar este componente en otros módulos

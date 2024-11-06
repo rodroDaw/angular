@@ -7,7 +7,11 @@
     <div class="col-10">
       <app-filter class="w-100" [productsList]="productsList" (productsFilteredEmmitter)="getListFilter($event)"></app-filter>
     </div>
-    <div class="col-12">
+    <div class="col-12 my-4">
+      <!-- Renderizamos la lista de productos -->
+      <div *ngIf="loading" class="row justify-content-center">
+        <mat-spinner class="p-0"></mat-spinner>
+      </div>
       <app-listado [productsList]="productsListShow"></app-listado>
     </div>
   </div>
